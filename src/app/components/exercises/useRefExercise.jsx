@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import CollapseWrapper from "../common/collapse";
+import Divider from "../common/divider";
 const UseRefExercise = () => {
+    const divEdit = useRef();
+
+    const handleClickEdit = () => {
+        divEdit.current.textContent = "text";
+        divEdit.current.style.height = "150px";
+        divEdit.current.style.width = "80px";
+    };
+
     return (
         <CollapseWrapper title="Упражнение">
             <p className="mt-3">
@@ -12,6 +21,7 @@ const UseRefExercise = () => {
                 <li>высота и ширина станут равны 150 и 80 соответственно</li>
             </ul>
             <div
+                ref={divEdit}
                 className="bg-primary d-flex flex-row justify-content-center align-items-center rounded"
                 style={{
                     height: 40,
@@ -21,6 +31,10 @@ const UseRefExercise = () => {
             >
                 <small>Блок</small>
             </div>
+            <Divider />
+            <button className="btn btn-danger" onClick={handleClickEdit}>
+                Изменить
+            </button>
         </CollapseWrapper>
     );
 };
