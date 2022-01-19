@@ -1,5 +1,10 @@
 import React from "react";
 import CollapseWrapper from "../common/collapse";
+import Divider from "../common/divider";
+
+import withAuth from "./withAuth";
+import SimpleComponent from "./simpleComponent";
+const SimpleComponentWithButtonAuth = withAuth(SimpleComponent);
 
 const HocExercise = () => {
     return (
@@ -47,6 +52,8 @@ const HocExercise = () => {
                     <code>user</code> в <code>localStorage</code>
                 </li>
             </ul>
+            <Divider />
+            <SimpleComponentWithButtonAuth />
         </CollapseWrapper>
     );
 };
